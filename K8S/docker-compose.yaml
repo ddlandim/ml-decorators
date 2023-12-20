@@ -1,0 +1,11 @@
+version: "3.8"
+
+services:
+  inference-server:
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      - THRESHOLD=0.7
+      - MODEL_NAME=your-model-name
+      - MODEL_TAG=your-model-tag

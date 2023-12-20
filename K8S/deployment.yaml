@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: inference-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: inference-server
+  template:
+    metadata:
+      labels:
+        app: inference-server
+    spec:
+      containers:
+      - name: inference-server
+        image: # Replace with your Artifact Registry image path
+        ports:
+        - containerPort: 8080
+        env:
+          - name: THRESHOLD
+            value: "0.85"  # Example threshold value
+          - name: MODEL_NAME
+            value: # Replace with your Hugging Face model name
+          - name: MODEL_TAG
+            value: # Replace with your Hugging Face model tag
